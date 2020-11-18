@@ -63,10 +63,6 @@ function  Ops-Databricks-AfterMigration{
 
       )
 
-    # Setting Params
-
-    $Groups=@("sg_app_opsi_business")
-
     # Establishing the connection to Databricks
 
     Set-DatabricksEnvironment -AccessToken $BearerToken -CustomApiRootUrl $CustomApiRootUrl
@@ -81,15 +77,6 @@ function  Ops-Databricks-AfterMigration{
         Add-DatabricksUser -BearerToken $BearerToken -Region $Region -Username $_
     
         Write-Host "User added in $DataBricksEnv :  $_"
-    }
-
-
-    # Create Groups
-
-    $Groups | ForEach {
-     
-        Add-DatabricksGroup -GroupName $_
-        Write-Host "Group added in $DataBricksEnv  :  $_"    
     }
 
     # Add memebers in defined group
