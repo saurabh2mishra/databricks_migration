@@ -95,12 +95,8 @@ function  Ops-Databricks-AfterMigration{
     # Add local DBFS folder to Databricks
 
     Add-DatabricksDBFSFile -BearerToken $BearerToken -Region $Region -LocalRootFolder $DBFSLocalPath -FilePattern "*"  -TargetLocation '/' -Verbose
-      
-    
+   
     Write-Host "`n---------Done---------" -ForegroundColor Yellow
-
-
-
 }
 
 
